@@ -136,9 +136,16 @@ CREATE TABLE GestionAsignacionPlanes (
 										CONSTRAINT FK_GestionAsignacionPlanes_IDPlan FOREIGN KEY (IDPlan) REFERENCES GestionPlanCobros(IDPlan)
 										);
 
-CREATE TABLE GestionDeudas (
+CREATE TABLE Rubros_Planes (
+								IDPlan INT NOT NULL,
+								IDRubro INT NOT NULL
+								CONSTRAINT FK_Rubros_Planes_IDRubro FOREIGN KEY (IDRubro) REFERENCES GestionRubrosCobros(IDRubro),
+								CONSTRAINT FK_Rubros_Planes_IDPlan FOREIGN KEY (IDPlan) REFERENCES GestionPlanCobros(IDPlan)
+								);
+
+/*CREATE TABLE GestionDeudas (
 								IDDeuda INT NOT NULL, /*PK*/
 								IDAsignacion INT NOT NULL, /*FK*/
 								PRIMARY KEY (IDDeuda),
 								CONSTRAINT FK_GestionDeudas_IDAsignacion FOREIGN KEY (IDAsignacion) REFERENCES GestionAsignacionPlanes(IDAsignacion)
-								);
+								);*/
